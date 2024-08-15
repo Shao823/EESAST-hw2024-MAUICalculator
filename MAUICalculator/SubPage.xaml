@@ -3,10 +3,64 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUICalculator.SubPage"
              Title="Advanced Calculator">
-    <VerticalStackLayout>
-        <Label 
-            Text="Implement your advanced calculaor here!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <Grid RowSpacing="6" ColumnSpacing="6" Margin="20">
+        <!-- 设置七行四列的网格 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- 显示计算结果 -->
+        <Label x:Name="displayLabel" Text="0" FontSize="Large" HorizontalTextAlignment="End" Grid.Row="0" Grid.ColumnSpan="4" />
+
+        <!-- 第一行：AC、DEL、切换回主页面、除法 -->
+        <Button Text="AC" Background="LightSkyBlue" Clicked="OnClearClicked" Grid.Row="1" Grid.Column="0"/>
+        <Button Text="DEL" Background="LightSkyBlue" Clicked="OnDeleteClicked" Grid.Row="1" Grid.Column="1"/>
+        <Button Text="Main" Background="LightSkyBlue" Clicked="OnMainPageClicked" Grid.Row="1" Grid.Column="2"/>
+        <Button Text="/" Background="LightSkyBlue" Clicked="OnOperatorClicked" Grid.Row="1" Grid.Column="3"/>
+
+        <!-- 第二行：7、8、9、乘法 -->
+        <Button Text="7" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="2" Grid.Column="0"/>
+        <Button Text="8" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="2" Grid.Column="1"/>
+        <Button Text="9" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="2" Grid.Column="2"/>
+        <Button Text="*" Background="LightSkyBlue" Clicked="OnOperatorClicked" Grid.Row="2" Grid.Column="3"/>
+
+        <!-- 第三行：4、5、6、减法 -->
+        <Button Text="4" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="3" Grid.Column="0"/>
+        <Button Text="5" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="3" Grid.Column="1"/>
+        <Button Text="6" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="3" Grid.Column="2"/>
+        <Button Text="-" Background="LightSkyBlue" Clicked="OnOperatorClicked" Grid.Row="3" Grid.Column="3"/>
+
+        <!-- 第四行：1、2、3、加法 -->
+        <Button Text="1" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="4" Grid.Column="0"/>
+        <Button Text="2" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="4" Grid.Column="1"/>
+        <Button Text="3" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="4" Grid.Column="2"/>
+        <Button Text="+" Background="LightSkyBlue" Clicked="OnOperatorClicked" Grid.Row="4" Grid.Column="3"/>
+
+        <!-- 第五行：0、小数点、等号 -->
+        <Button Text="0" Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Button Text="." Background="LightSkyBlue" Clicked="OnNumberClicked" Grid.Row="5" Grid.Column="2"/>
+        <Button Text="=" Background="LightSkyBlue" Clicked="OnEqualClicked" Grid.Row="5" Grid.Column="3"/>
+
+        <!-- 第六行：乘方、对数、开根号、阶乘 -->
+        <Button Text="x^y" Background="LightSkyBlue" Clicked="OnAdvancedOperatorClicked" Grid.Row="6" Grid.Column="0"/>
+        <Button Text="lg" Background="LightSkyBlue" Clicked="OnAdvancedOperatorClicked" Grid.Row="6" Grid.Column="1"/>
+        <Button Text="√" Background="LightSkyBlue" Clicked="OnAdvancedOperatorClicked" Grid.Row="6" Grid.Column="2"/>
+        <Button Text="x!" Background="LightSkyBlue" Clicked="OnAdvancedOperatorClicked" Grid.Row="6" Grid.Column="3"/>
+
+    </Grid>
+    
 </ContentPage>
